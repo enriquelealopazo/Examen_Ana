@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Repaso Examen Fines Laborales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFBF7; --grid:#E4EBF3; --ink:#1A1D24; --muted:#58606E; --line:#C7D1DD; --card:#FFFFFF;
+  --blue:#1F3A8A; --pen:#C4302A;
+  --len:#C9433A; --mat:#2460C4; --cie:#1F8A52; --soc:#B97A08;
+  --ok:#1C7F46; --okbg:#E3F4E9; --bad:#C4302A; --badbg:#FBE6E3;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#13161B; --grid:#1C2129; --ink:#E8EBF0; --muted:#A2A9B5; --line:#353C49; --card:#1A1E25;
+    --blue:#8EA8F2; --pen:#FF7D72;
+    --len:#F0675C; --mat:#6E9CF0; --cie:#4CC384; --soc:#EDB241;
+    --ok:#4CC384; --okbg:#16301F; --bad:#FF7D72; --badbg:#3A1C1A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#13161B; --grid:#1C2129; --ink:#E8EBF0; --muted:#A2A9B5; --line:#353C49; --card:#1A1E25;
+  --blue:#8EA8F2; --pen:#FF7D72;
+  --len:#F0675C; --mat:#6E9CF0; --cie:#4CC384; --soc:#EDB241;
+  --ok:#4CC384; --okbg:#16301F; --bad:#FF7D72; --badbg:#3A1C1A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; color:var(--ink); background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:26px 26px;
+  font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:18px; line-height:1.5; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:560px;margin:0 auto;padding:22px 18px 56px}
+h1{font-size:2rem;line-height:1.12;margin:6px 0 10px;letter-spacing:-.01em}
+h2{font-size:1.15rem;margin:28px 0 12px}
+p{margin:0 0 10px}
+a{color:var(--blue)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hand{font-family:"Kalam","Comic Sans MS",cursive;color:var(--pen)}
+.lead{color:var(--muted)}
+
+/* Inicio */
+.exam{background:var(--card);border:1.5px solid var(--line);border-left:6px solid var(--blue);border-radius:4px 12px 12px 4px;padding:14px 16px;margin:18px 0 6px}
+.exam .count{font-size:1.6rem;line-height:1.1;margin-bottom:6px;transform:rotate(-1.5deg);transform-origin:left}
+.exam p:last-child{margin:0;font-size:.95rem}
+.tabs{display:grid;gap:10px}
+.tab{position:relative;display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:4px 14px 14px 4px;padding:14px 14px 14px 26px;min-height:72px}
+.tab::before{content:"";position:absolute;left:0;top:-1.5px;bottom:-1.5px;width:12px;background:var(--c);border-radius:4px 0 0 4px}
+.tab .tx{flex:1}
+.tab b{display:block;font-size:1.08rem}
+.tab small{color:var(--muted);font-size:.88rem}
+.tab .best{font-family:"Kalam",cursive;color:var(--pen);font-size:1.5rem;line-height:1;text-align:center}
+.tab .best small{display:block;font-family:"Atkinson Hyperlegible",sans-serif;font-size:.7rem;color:var(--muted)}
+.sim{display:block;width:100%;text-align:left;margin-top:16px;background:var(--blue);color:var(--paper);border:0;border-radius:14px;padding:16px 18px}
+.sim b{display:block;font-size:1.12rem}
+.sim span{opacity:.88;font-size:.9rem}
+.foot{margin-top:24px;font-size:.92rem;color:var(--muted)}
+.link{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;font-size:.88rem}
+
+/* Asignatura y guía */
+.back{background:none;border:0;padding:6px 0;color:var(--muted);font-size:1rem}
+.subj-h{border-bottom:5px solid var(--c);display:inline-block;padding-bottom:2px}
+.choices{display:grid;gap:12px;margin-top:18px}
+.big{display:block;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px 18px}
+.big b{display:block;font-size:1.1rem}
+.big span{color:var(--muted);font-size:.92rem}
+.big.primary{border-color:var(--c);box-shadow:inset 6px 0 0 var(--c)}
+.gcard{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.gcard h3{margin:0 0 6px;font-size:1.05rem;color:var(--c)}
+.gcard p{margin:0}
+.tl{margin:4px 0 0;padding-left:1.3em}
+.tl li{margin-bottom:6px}
+
+/* Pregunta */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding:10px 0 12px;margin:-10px 0 8px;border-bottom:1.5px solid var(--line)}
+.bar-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.92rem;color:var(--muted)}
+.bar-row .back{padding:0}
+.timer{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+.timer.low{color:var(--bad)}
+.prog{height:8px;background:var(--grid);border-radius:4px;margin-top:8px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--c);border-radius:4px;transition:width .3s}
+.chip{display:inline-block;font-size:.8rem;font-weight:700;color:var(--c);border:1.5px solid var(--c);border-radius:999px;padding:1px 10px;margin:6px 0 4px}
+.ctx{background:var(--card);border:1.5px dashed var(--line);border-radius:10px;padding:14px 16px;margin:10px 0 6px;font-size:.98rem}
+.ctx-t{font-weight:700;color:var(--muted);font-size:.85rem;margin-bottom:8px}
+.ctx .poem{font-style:italic;line-height:1.7}
+.ctx .ad{border:2px solid var(--ink);border-radius:6px;padding:12px;text-align:center}
+.ctx table{border-collapse:collapse;width:100%}
+.ctx th,.ctx td{border:1.5px solid var(--line);padding:6px 10px;text-align:left}
+.ctx svg{width:100%;height:auto;display:block}
+.q{font-size:1.22rem;line-height:1.35;margin:14px 0 14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px;min-height:56px;transition:border-color .15s,background .15s}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:.95rem}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.ok .L{background:var(--ok);border-color:var(--ok);color:var(--card)}
+.opt.bad{border-color:var(--bad);background:var(--badbg)}
+.opt.bad .L{background:var(--bad);border-color:var(--bad);color:var(--card)}
+.opt.dim{opacity:.5}
+.opt[aria-disabled="true"]{cursor:default}
+.fb{margin-top:14px;border-radius:12px;padding:12px 16px;border:2px solid var(--line);background:var(--card)}
+.fb.is-ok{border-color:var(--ok)}
+.fb.is-bad{border-color:var(--bad)}
+.fb-t{font-size:1.45rem;line-height:1.1;margin-bottom:4px}
+.fb.is-ok .fb-t{color:var(--ok)}
+.fb p:last-child{margin:0}
+.hint{font-size:.9rem;color:var(--muted)}
+textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px;resize:vertical}
+.ask{margin:14px 0 8px;font-weight:700}
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.yn button{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px;font-weight:700}
+.next{display:block;width:100%;margin-top:16px;background:var(--ink);color:var(--paper);border:0;border-radius:12px;padding:15px;font-weight:700;font-size:1.05rem}
+
+/* Resultado */
+.result{text-align:center;padding-top:10px}
+.grade{display:inline-block;font-family:"Kalam",cursive;color:var(--pen);font-size:4.6rem;line-height:1;font-weight:700;border:3px solid var(--pen);border-radius:50%;padding:22px 26px 14px;transform:rotate(-5deg);margin:12px 0 14px;animation:stamp .45s ease-out}
+@keyframes stamp{from{transform:rotate(-12deg) scale(1.35);opacity:0}to{transform:rotate(-5deg) scale(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){.grade{animation:none}.prog i{transition:none}}
+.verdict{font-size:1.3rem;font-weight:700;margin-bottom:4px}
+.breakdown{display:grid;gap:8px;text-align:left;margin:18px 0}
+.brow{display:flex;justify-content:space-between;background:var(--card);border:1.5px solid var(--line);border-left:8px solid var(--c);border-radius:4px 10px 10px 4px;padding:10px 14px}
+.wrong{text-align:left;margin-top:8px}
+.wrong .gcard{font-size:.95rem}
+.wrong .gcard p+p{margin-top:6px;color:var(--ok);font-weight:700}
+.actions{display:grid;gap:10px;margin-top:18px}
+.actions .next{margin:0}
+.ghost{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px;font-weight:700;width:100%}
+</style>
+</head>
+<body>
+<main class="wrap" id="app"></main>
+<script>
+"use strict";
+var EXAM = new Date(2026, 9, 7);
+var KEY = "repaso-fines-laborales-v1";
+
+var TX = {
+  rigo:{t:"Lee el cuento", h:"<p>Don Rigoberto cerró su almacén más temprano que de costumbre. Afuera, el viento levantaba polvo y hojas secas. Caminó despacio hasta la casa de su nieta, con una bolsa de pan amasado bajo el brazo.</p><p style='margin:0'>Hacía meses que no la visitaba; el orgullo, más que la distancia, lo había mantenido lejos. Cuando ella abrió la puerta, ninguno dijo nada. Ella solo sonrió y puso la tetera al fuego.</p>"},
+  aviso:{t:"Lee el aviso", h:"<div class='ad'><b>¡Operativo de salud gratuito!</b><br>Sábado 17 de octubre, de 9:00 a 14:00 hrs.<br>Sede vecinal Villa Esperanza.<br>Control de presión, glicemia y vacunación.<br><i>Traiga su cédula de identidad.</i><br><small>Organiza: Junta de Vecinos Villa Esperanza</small></div>"},
+  noticia:{t:"Lee la noticia", h:"<p><b>Voluntarios retiran dos toneladas de basura de playa Chinchorro</b></p><p><i>La jornada reunió a vecinos y estudiantes de la ciudad.</i></p><p>Arica. Más de 300 voluntarios limpiaron ayer la playa Chinchorro y retiraron cerca de dos toneladas de basura. La actividad fue organizada por la municipalidad junto a estudiantes de liceos de la ciudad.</p><p style='margin:0'>“Queremos crear conciencia sobre el cuidado del mar”, señaló una de las organizadoras.</p>"},
+  poema:{t:"Lee el poema", h:"<p class='poem' style='margin:0'>Mi madre tiene las manos<br>cansadas de tanto dar,<br>pero cuando me acarician<br>se me olvida el pesar.</p>"},
+  publi:{t:"Lee el anuncio", h:"<div class='ad'><b>Zapatillas Rayo</b><br>Los campeones no nacen: se hacen.<br>Con Rayo, llegarás más lejos.</div>"},
+  feria:{t:"Observa la tabla de precios de la feria", h:"<table><tr><th>Producto</th><th>Precio por kilo</th></tr><tr><td>Tomate</td><td>$1.200</td></tr><tr><td>Papa</td><td>$900</td></tr><tr><td>Cebolla</td><td>$1.100</td></tr></table>"},
+  grafico:{t:"Observa el gráfico", h:""}
+};
+(function(){
+  var v=[20,35,15,40,30], d=["Lun","Mar","Mié","Jue","Vie"], s="";
+  s+="<svg viewBox='0 0 320 220' role='img' aria-label='Gráfico de barras de empanadas vendidas: lunes 20, martes 35, miércoles 15, jueves 40, viernes 30'>";
+  s+="<text x='160' y='16' text-anchor='middle' font-size='13' font-weight='700' fill='currentColor'>Empanadas vendidas en la semana</text>";
+  [0,10,20,30,40].forEach(function(k){var y=190-k*3.75;s+="<line x1='38' x2='312' y1='"+y+"' y2='"+y+"' stroke='var(--line)' stroke-width='1'/><text x='32' y='"+(y+4)+"' text-anchor='end' font-size='11' fill='var(--muted)'>"+k+"</text>";});
+  v.forEach(function(n,i){var h=n*3.75,x=52+i*52,y=190-h;s+="<rect x='"+x+"' y='"+y+"' width='34' height='"+h+"' rx='3' fill='var(--mat)'/><text x='"+(x+17)+"' y='"+(y-5)+"' text-anchor='middle' font-size='12' font-weight='700' fill='currentColor'>"+n+"</text><text x='"+(x+17)+"' y='207' text-anchor='middle' font-size='12' fill='currentColor'>"+d[i]+"</text>";});
+  s+="</svg>";
+  TX.grafico.h=s;
+})();
+
+var SUBJ = {
+ len:{name:"Lenguaje y Comunicación", c:"var(--len)",
+  intro:"Comprensión de lectura, tipos de texto, sinónimos, sujeto y predicado. Lee siempre el texto completo antes de mirar las alternativas.",
+  guide:[
+   {t:"Explícito o implícito", b:"<b>Explícito</b>: está escrito tal cual en el texto; solo hay que encontrarlo.<br><b>Implícito</b>: no está escrito, se deduce con pistas. Ej.: si alguien “sonrió y puso la tetera”, se infiere que le alegra la visita."},
+   {t:"Textos literarios", b:"<b>Narrativo</b> (cuento, novela): un narrador cuenta hechos de personajes.<br><b>Lírico</b> (poema): un <b>hablante lírico</b> expresa sentimientos en versos y estrofas.<br><b>Dramático</b> (teatro): diálogos y <b>acotaciones</b> (indicaciones entre paréntesis); está hecho para representarse."},
+   {t:"Textos no literarios", b:"Cartas, afiches o avisos, noticias, recetas, instrucciones y textos informativos. Sirven para informar, pedir, enseñar a hacer algo o convencer."},
+   {t:"Emisor y receptor", b:"<b>Emisor</b>: quien escribe o envía el mensaje. <b>Receptor</b>: a quien va dirigido. En un aviso, el emisor suele aparecer al final (“Organiza: …”)."},
+   {t:"Partes de la noticia", b:"<b>Titular</b>: el título. <b>Bajada</b>: amplía el título. <b>Lead o entrada</b>: primer párrafo, responde qué, quién, cuándo y dónde. <b>Cuerpo</b>: los detalles."},
+   {t:"Sujeto y predicado", b:"<b>Sujeto</b>: de quién se habla. Pregúntale “¿quién?” al verbo.<br><b>Predicado</b>: lo que se dice del sujeto; siempre tiene el verbo.<br>Ej.: <u>Los pescadores</u> / salieron temprano al mar."},
+   {t:"Sinónimos", b:"Palabras de significado parecido: exhausto = agotado, feliz = contento. Truco: cambia la palabra en la oración; si el sentido no cambia, es la correcta."},
+   {t:"Textos publicitarios", b:"Propósito <b>explícito</b>: vender o promover algo. Propósito <b>implícito</b>: lo que sugieren sin decirlo, por ejemplo que el producto te hará exitoso, bello o feliz."},
+   {t:"Cómo fundamentar una opinión", b:"Usa la fórmula: <b>postura</b> (“Creo que…”) + <b>razón</b> (“porque…”) + <b>prueba del texto</b> (“por ejemplo, en el texto…”). Dos o tres oraciones bastan."}
+  ],
+  q:[
+   {c:"rigo",q:"¿Qué llevaba don Rigoberto bajo el brazo?",o:["Una bolsa de pan amasado","Una tetera","Hojas secas","Un regalo envuelto"],a:0,e:"Es información explícita: está escrita tal cual en el texto."},
+   {c:"rigo",q:"¿Por qué don Rigoberto llevaba meses sin visitar a su nieta?",o:["Porque vivía muy lejos","Por orgullo","Porque estaba enfermo","Porque trabajaba mucho"],a:1,e:"El texto dice “el orgullo, más que la distancia”. Ojo: menciona la distancia justamente para descartarla."},
+   {c:"rigo",q:"¿Qué se puede inferir de la reacción de la nieta al abrir la puerta?",o:["Que estaba enojada con su abuelo","Que no lo reconoció","Que se alegró y lo recibió bien","Que estaba apurada"],a:2,e:"No está escrito directamente (es implícito), pero sonreír y poner la tetera al fuego son señales de que lo recibe con cariño."},
+   {c:"rigo",q:"¿Cuál es el tema principal del cuento?",o:["El trabajo en un almacén","La reconciliación entre un abuelo y su nieta","El clima del norte","La preparación del pan amasado"],a:1,e:"El tema es la idea central. Todo el cuento gira en torno al reencuentro después de un distanciamiento."},
+   {c:"rigo",q:"En la frase “cerró su almacén más temprano que de costumbre”, la expresión “de costumbre” significa:",o:["De mala gana","Lo habitual, lo de siempre","De apuro","Con tristeza"],a:1,e:"“De costumbre” es lo que se hace normalmente. Reemplaza la expresión en la oración y comprueba que el sentido se mantiene."},
+   {c:"aviso",q:"¿Quién es el emisor de este aviso?",o:["Los vecinos que asisten","El Ministerio de Salud","La Junta de Vecinos Villa Esperanza","Un hospital"],a:2,e:"El emisor es quien produce el mensaje. Aparece al final: “Organiza: Junta de Vecinos Villa Esperanza”."},
+   {c:"aviso",q:"¿Cuál es el propósito principal de este aviso?",o:["Vender medicamentos","Informar e invitar a un operativo de salud","Contar una historia","Dar una opinión sobre la salud"],a:1,e:"Avisos y afiches buscan informar algo y motivar a la gente a participar."},
+   {c:"aviso",q:"¿Qué deben llevar las personas que asistan?",o:["Una receta médica","Dinero en efectivo","Su cédula de identidad","Una fotografía"],a:2,e:"Información explícita: “Traiga su cédula de identidad”."},
+   {c:"noticia",q:"¿Qué ocurrió según la noticia?",o:["Se cerró la playa Chinchorro","Voluntarios limpiaron la playa Chinchorro","Hubo un temporal en Arica","Se inauguró un liceo"],a:1,e:"Es el hecho principal y aparece en el primer párrafo."},
+   {c:"noticia",q:"El primer párrafo de una noticia, que resume qué pasó, quiénes, cuándo y dónde, se llama:",o:["Titular","Lead o entrada","Cuerpo","Bajada"],a:1,e:"Titular (el título), bajada (amplía el título), lead o entrada (resume lo esencial) y cuerpo (los detalles)."},
+   {c:"poema",q:"¿Qué siente el hablante lírico hacia su madre?",o:["Rabia","Indiferencia","Amor y gratitud","Miedo"],a:2,e:"Las caricias de la madre le hacen olvidar el pesar: expresa cariño y agradecimiento."},
+   {c:"poema",q:"En un poema, el hablante lírico es:",o:["El autor del poema","La voz que expresa los sentimientos en el poema","El lector","El título del poema"],a:1,e:"El hablante lírico es una voz creada por el autor; no siempre es el autor mismo."},
+   {q:"En la oración “Los pescadores salieron temprano al mar”, ¿cuál es el sujeto?",o:["salieron temprano","al mar","Los pescadores","temprano al mar"],a:2,e:"Pregunta: ¿quién salió temprano al mar? La respuesta es el sujeto: “Los pescadores”. El resto es el predicado."},
+   {q:"En la oración “Mi vecina cocina empanadas los domingos”, ¿cuál es el predicado?",o:["Mi vecina","cocina empanadas los domingos","los domingos","Mi vecina cocina"],a:1,e:"El predicado es lo que se dice del sujeto y siempre contiene el verbo (“cocina”)."},
+   {q:"¿Cuál es el sinónimo de “exhausto” en “Llegó exhausto después del turno”?",o:["Contento","Agotado","Atrasado","Enojado"],a:1,e:"Sinónimo es una palabra de significado parecido. “Exhausto” significa muy cansado."},
+   {c:"publi",q:"¿Cuál es el propósito implícito (no dicho directamente) de este anuncio?",o:["Informar el precio de las zapatillas","Hacer creer que con esas zapatillas tendrás éxito","Enseñar a correr","Contar la historia de la marca"],a:1,e:"El propósito explícito es vender. El implícito es asociar el producto con el éxito para que lo desees."},
+   {q:"En una obra de teatro, las indicaciones entre paréntesis sobre cómo actúan o se mueven los personajes se llaman:",o:["Diálogos","Estrofas","Acotaciones","Párrafos"],a:2,e:"El texto dramático tiene diálogos (lo que dicen) y acotaciones (indicaciones para actuar)."},
+   {q:"Una receta de cocina es un texto:",o:["Literario narrativo","Instructivo, que enseña a hacer algo paso a paso","Lírico","Dramático"],a:1,e:"Recetas e instrucciones son textos no literarios con ingredientes o materiales y pasos ordenados."},
+   {open:true,c:"rigo",q:"¿Te parece correcta la decisión de don Rigoberto de ir a visitar a su nieta? Da tu opinión y fundaméntala con algo del texto.",m:"Ejemplo: “Sí, me parece correcta, porque dejó de lado el orgullo para recuperar la relación con su nieta. Valió la pena, ya que ella lo recibió con una sonrisa y le preparó té.”<br><br>Fórmula: <b>postura</b> + <b>razón</b> (porque…) + <b>prueba del texto</b>."},
+   {open:true,c:"noticia",q:"Según la noticia, ¿para qué se organizó la limpieza de la playa? Responde con tus palabras.",m:"Ejemplo: “Para cuidar el mar y crear conciencia en la comunidad de no dejar basura en la playa, como dice una de las organizadoras.”<br><br>Clave: responde con una oración completa y apóyate en el texto."}
+  ]},
+ mat:{name:"Educación Matemática", c:"var(--mat)",
+  intro:"Operaciones con fracciones y decimales, gráficos, proporciones, áreas y promedios. Escribe siempre la operación en el papel: te ayuda a no equivocarte.",
+  guide:[
+   {t:"Fracción de un número", b:"Divide por el número de abajo y multiplica por el de arriba.<br>3/4 de 20 → 20 ÷ 4 = 5 → 5 × 3 = <b>15</b>."},
+   {t:"Sumar fracciones", b:"Los números de abajo deben ser iguales. 1/2 + 1/4 → 2/4 + 1/4 = <b>3/4</b>."},
+   {t:"Decimales", b:"En Chile la coma separa los decimales: 1,5 kg es un kilo y medio. Ej.: 1,5 × 1.100 → 1 kg vale 1.100, medio kilo vale 550 → <b>1.650</b>."},
+   {t:"Proporción directa", b:"Si una cantidad sube, la otra también (más kilos, más precio). Saca el valor de 1 y multiplica.<br>3 kg cuestan $2.700 → 1 kg = $900 → 5 kg = <b>$4.500</b>."},
+   {t:"Proporción inversa", b:"Si una sube, la otra baja (más trabajadores, menos días). Multiplica y luego divide.<br>4 obreros en 6 días → 4 × 6 = 24 → con 8 obreros: 24 ÷ 8 = <b>3 días</b>."},
+   {t:"Perímetro y área", b:"<b>Perímetro</b>: el contorno, se suman los lados (m).<br><b>Área</b>: la superficie (m²).<br>Cuadrado: lado × lado. Rectángulo: largo × ancho. Triángulo: base × altura ÷ 2.<br>Figuras raras: divídelas en partes y suma."},
+   {t:"Círculo y cilindro", b:"π = 3,14. Radio = mitad del diámetro.<br>Perímetro del círculo = 2 × π × radio<br>Área del círculo = π × radio × radio<br>Volumen del cilindro = π × radio × radio × altura (m³)"},
+   {t:"Media, moda y mediana", b:"<b>Media</b> (promedio): suma todo y divide por la cantidad de datos.<br><b>Moda</b>: el dato que más se repite.<br><b>Mediana</b>: ordena de menor a mayor y toma el del medio."},
+   {t:"Tablas y gráficos", b:"Lee primero el título y qué indica cada eje. En un gráfico de barras, la barra más alta es el valor mayor. Para “cuánto más”, resta; para “en total”, suma."}
+  ],
+  q:[
+   {q:"Un trabajador gana $18.500 por día y trabajó 22 días. ¿Cuánto ganó?",o:["$370.000","$407.000","$398.500","$40.700"],a:1,e:"Se multiplica: 18.500 × 22 = 407.000."},
+   {q:"Juan ahorra 1/4 de su sueldo de $600.000. ¿Cuánto ahorra?",o:["$150.000","$240.000","$60.000","$400.000"],a:0,e:"Divide por el de abajo y multiplica por el de arriba: 600.000 ÷ 4 = 150.000; 150.000 × 1 = 150.000."},
+   {q:"María usa 3/4 de un rollo de 20 metros de tela. ¿Cuántos metros usó?",o:["5 m","12 m","15 m","17 m"],a:2,e:"20 ÷ 4 = 5, y 5 × 3 = 15 metros."},
+   {q:"¿Cuánto es 1/2 + 1/4?",o:["2/6","3/4","1/8","2/4"],a:1,e:"1/2 es lo mismo que 2/4. Entonces 2/4 + 1/4 = 3/4. Para sumar, los denominadores (números de abajo) deben ser iguales."},
+   {c:"feria",q:"Si compras 2 kg de tomates y 3 kg de papas, ¿cuánto pagas?",o:["$5.100","$4.200","$6.300","$5.400"],a:0,e:"Tomates: 2 × 1.200 = 2.400. Papas: 3 × 900 = 2.700. Total: 5.100."},
+   {c:"feria",q:"¿Cuánto cuestan 1,5 kg de cebollas?",o:["$1.100","$1.500","$1.650","$2.200"],a:2,e:"1 kg vale 1.100 y medio kilo vale 550. 1.100 + 550 = 1.650."},
+   {q:"Pagas una cuenta de $12.750 con un billete de $20.000. ¿Cuánto vuelto recibes?",o:["$7.250","$8.250","$7.350","$32.750"],a:0,e:"Se resta: 20.000 − 12.750 = 7.250."},
+   {c:"grafico",q:"¿Qué día se vendieron más empanadas?",o:["Lunes","Martes","Jueves","Viernes"],a:2,e:"La barra más alta es la del jueves, con 40."},
+   {c:"grafico",q:"¿Cuántas empanadas se vendieron en total de lunes a viernes?",o:["120","140","150","130"],a:1,e:"20 + 35 + 15 + 40 + 30 = 140."},
+   {c:"grafico",q:"¿Cuántas empanadas más se vendieron el jueves que el miércoles?",o:["15","20","25","55"],a:2,e:"Jueves 40, miércoles 15. Diferencia: 40 − 15 = 25."},
+   {q:"Si 3 kg de manzanas cuestan $2.700, ¿cuánto cuestan 5 kg?",o:["$4.500","$3.700","$5.400","$4.000"],a:0,e:"Proporción directa. Valor de 1 kg: 2.700 ÷ 3 = 900. Luego 900 × 5 = 4.500."},
+   {q:"4 trabajadores pintan una casa en 6 días. ¿En cuántos días la pintan 8 trabajadores al mismo ritmo?",o:["12 días","3 días","2 días","10 días"],a:1,e:"Proporción inversa: más trabajadores, menos días. 4 × 6 = 24; 24 ÷ 8 = 3 días."},
+   {q:"En un curso hay 12 hombres y 18 mujeres. ¿Cuál es la razón entre hombres y mujeres, simplificada?",o:["3 : 2","2 : 3","12 : 30","1 : 2"],a:1,e:"La razón es 12 : 18. Dividiendo ambos por 6 queda 2 : 3 (por cada 2 hombres hay 3 mujeres)."},
+   {q:"Un patio rectangular mide 8 m de largo y 5 m de ancho. ¿Cuál es su perímetro?",o:["13 m","26 m","40 m","80 m"],a:1,e:"Perímetro = suma de todos los lados: 8 + 5 + 8 + 5 = 26 m."},
+   {q:"¿Cuál es el área de un patio rectangular de 8 m por 5 m?",o:["26 m²","13 m²","40 m²","45 m²"],a:2,e:"Área = largo × ancho = 8 × 5 = 40 m²."},
+   {q:"Un triángulo tiene base 10 cm y altura 6 cm. ¿Cuál es su área?",o:["60 cm²","30 cm²","16 cm²","32 cm²"],a:1,e:"Área = base × altura ÷ 2 = 10 × 6 ÷ 2 = 30 cm²."},
+   {q:"Un terreno en forma de L se divide en dos rectángulos: uno de 6 m × 4 m y otro de 3 m × 2 m. ¿Cuál es el área total?",o:["30 m²","24 m²","15 m²","36 m²"],a:0,e:"Calcula cada parte y suma: 6 × 4 = 24 y 3 × 2 = 6. Total: 30 m²."},
+   {q:"¿Cuál es el área de un círculo de radio 5 cm? (π = 3,14)",o:["31,4 cm²","15,7 cm²","78,5 cm²","25 cm²"],a:2,e:"Área = π × r × r = 3,14 × 5 × 5 = 3,14 × 25 = 78,5 cm²."},
+   {q:"¿Cuál es el perímetro de un círculo de radio 5 cm? (π = 3,14)",o:["31,4 cm","78,5 cm","15,7 cm","10 cm"],a:0,e:"Perímetro = 2 × π × r = 2 × 3,14 × 5 = 31,4 cm."},
+   {q:"Un estanque cilíndrico tiene radio 2 m y altura 3 m. ¿Cuál es su volumen? (π = 3,14)",o:["18,84 m³","37,68 m³","12,56 m³","113,04 m³"],a:1,e:"Volumen = π × r × r × altura = 3,14 × 2 × 2 × 3 = 3,14 × 12 = 37,68 m³."},
+   {q:"Un almacén vendió en 4 días 4, 6, 8 y 10 kilos de pan. ¿Cuál es la media (promedio)?",o:["6 kg","7 kg","8 kg","28 kg"],a:1,e:"Media = suma ÷ cantidad de datos: (4 + 6 + 8 + 10) ÷ 4 = 28 ÷ 4 = 7."},
+   {q:"¿Cuál es la moda de estos datos: 2, 3, 3, 5, 7?",o:["3","4","5","7"],a:0,e:"La moda es el dato que más se repite. El 3 aparece dos veces."},
+   {q:"¿Cuál es la mediana de estos datos: 9, 3, 7, 1, 5?",o:["7","5","3","9"],a:1,e:"Ordénalos primero: 1, 3, 5, 7, 9. El del medio es el 5."},
+   {open:true,q:"Explica paso a paso cómo calcularías el área de un círculo de radio 3 cm (π = 3,14).",m:"1) Fórmula: área = π × radio × radio.<br>2) Reemplazar: 3,14 × 3 × 3.<br>3) Calcular: 3 × 3 = 9, y 3,14 × 9 = 28,26.<br>Respuesta: <b>28,26 cm²</b>.<br><br>En preguntas abiertas de matemática, escribe la operación, no solo el resultado."}
+  ]},
+ cie:{name:"Ciencias Naturales", c:"var(--cie)",
+  intro:"Nutrición, sistema reproductor, materiales, estados de la materia y energía. Son conceptos para memorizar: la guía rápida rinde mucho aquí.",
+  guide:[
+   {t:"Nutrientes", b:"<b>Carbohidratos</b> (pan, arroz, papa): energía principal.<br><b>Lípidos o grasas</b> (aceite, palta): energía de reserva.<br><b>Proteínas</b> (carne, huevo, legumbres, lácteos): forman y reparan tejidos.<br><b>Vitaminas y minerales</b> (frutas, verduras): regulan y dan defensas.<br><b>Agua</b>: indispensable."},
+   {t:"Alimentación saludable", b:"Variada, en porciones adecuadas, con frutas y verduras todos los días, agua, y poca sal, azúcar y grasa."},
+   {t:"Sistema reproductor femenino", b:"<b>Ovarios</b>: producen óvulos y hormonas.<br><b>Trompas de Falopio</b>: ahí ocurre la fecundación.<br><b>Útero</b>: ahí se desarrolla el embrión.<br><b>Vagina</b>: conducto hacia el exterior.<br>Ciclo menstrual: cerca de 28 días. Si no hay embarazo, la capa interna del útero se desprende (menstruación)."},
+   {t:"Sistema reproductor masculino", b:"<b>Testículos</b>: producen espermatozoides y testosterona.<br><b>Conductos deferentes</b>: transportan los espermatozoides.<br><b>Próstata y vesículas seminales</b>: forman el semen.<br><b>Uretra y pene</b>: expulsan el semen."},
+   {t:"Sustancias naturales y sintéticas", b:"<b>Naturales</b>: vienen de la naturaleza (lana, algodón, madera, cuero).<br><b>Sintéticas</b>: fabricadas por el ser humano, muchas a partir del petróleo (plástico, nylon, poliéster).<br>Propiedades útiles: conductor (cobre), aislante (plástico), impermeable (goma)."},
+   {t:"Estados de la materia", b:"<b>Sólido</b>: forma fija. <b>Líquido</b>: toma la forma del envase. <b>Gas</b>: ocupa todo el espacio.<br>Fusión: sólido → líquido<br>Solidificación: líquido → sólido<br>Evaporación: líquido → gas<br>Condensación: gas → líquido<br>Sublimación: sólido → gas directo"},
+   {t:"Energía", b:"<b>Renovables</b> (no se agotan): solar, eólica (viento), hidráulica (agua).<br><b>No renovables</b>: petróleo, carbón, gas.<br>Tipos: eléctrica, lumínica, calórica, química, de movimiento (cinética), sonora."},
+   {t:"Transformaciones de energía", b:"Ampolleta: eléctrica → luz y calor.<br>Panel solar: luz → eléctrica.<br>Pila: química → eléctrica.<br>Cocina a gas: química → calor.<br>Radio: eléctrica → sonora."}
+  ],
+  q:[
+   {q:"¿Qué nutriente es la principal fuente de energía del cuerpo?",o:["Las vitaminas","Los carbohidratos","El agua","Los minerales"],a:1,e:"Los carbohidratos (pan, arroz, papas, fideos) entregan la energía principal."},
+   {q:"¿Cuál es la función principal de las proteínas?",o:["Dar sabor a los alimentos","Formar y reparar los tejidos del cuerpo","Hidratar el cuerpo","Regular la temperatura"],a:1,e:"Construyen y reparan músculos, piel y otros tejidos. Están en carnes, huevos, lácteos y legumbres."},
+   {q:"¿Cuál de estos alimentos es más rico en proteínas?",o:["Lechuga","Arroz","Huevo","Aceite"],a:2,e:"El huevo aporta proteínas. La lechuga aporta vitaminas y fibra, el arroz carbohidratos y el aceite grasas."},
+   {q:"Las frutas y verduras aportan principalmente:",o:["Vitaminas, minerales y fibra","Grasas","Proteínas","Solo agua"],a:0,e:"Vitaminas y minerales regulan el cuerpo y fortalecen las defensas; la fibra ayuda a la digestión."},
+   {q:"Una alimentación equilibrada es aquella que:",o:["Incluye solo carnes","Incluye variedad de alimentos en cantidades adecuadas","Elimina todos los carbohidratos","Se basa en comida rápida"],a:1,e:"Equilibrada = variada (todos los grupos) y en porciones adecuadas."},
+   {q:"¿En qué órgano ocurre normalmente la fecundación?",o:["En el útero","En los ovarios","En las trompas de Falopio","En la vagina"],a:2,e:"Óvulo y espermatozoide se unen en las trompas de Falopio; luego el embrión se implanta en el útero."},
+   {q:"¿Qué órgano produce los óvulos?",o:["El útero","Los ovarios","Las trompas de Falopio","La vagina"],a:1,e:"Los ovarios producen óvulos y hormonas femeninas (estrógeno y progesterona)."},
+   {q:"¿Qué órgano produce los espermatozoides?",o:["La próstata","La uretra","Los testículos","El pene"],a:2,e:"Los testículos producen espermatozoides y la hormona testosterona."},
+   {q:"¿Dónde se desarrolla el embrión durante el embarazo?",o:["En el útero","En el ovario","En las trompas de Falopio","En la vejiga"],a:0,e:"El útero es el órgano donde el embrión se implanta y crece hasta el parto."},
+   {q:"La menstruación corresponde a:",o:["La salida de un óvulo fecundado","El desprendimiento de la capa interna del útero cuando no hay embarazo","La producción de espermatozoides","Una enfermedad"],a:1,e:"Si el óvulo no es fecundado, la capa interna del útero se desprende. El ciclo dura cerca de 28 días."},
+   {q:"¿Cuál de estos materiales es sintético (fabricado por el ser humano)?",o:["Lana","Algodón","Madera","Plástico"],a:3,e:"Los sintéticos se fabrican en la industria, muchos a partir del petróleo: plástico, nylon, poliéster."},
+   {q:"¿Por qué los cables eléctricos son de cobre por dentro y de plástico por fuera?",o:["Porque ambos conducen la electricidad","Porque el cobre conduce la electricidad y el plástico aísla","Porque el plástico conduce y el cobre aísla","Por su color"],a:1,e:"El cobre es buen conductor. El plástico es aislante: evita que la corriente pase a quien toca el cable."},
+   {q:"¿Cuáles son los tres estados de la materia?",o:["Frío, tibio y caliente","Sólido, líquido y gaseoso","Duro, blando y líquido","Hielo, agua y nube"],a:1,e:"Sólido (forma fija), líquido (toma la forma del envase) y gaseoso (ocupa todo el espacio)."},
+   {q:"Cuando el agua de una olla hierve y se convierte en vapor, ocurre una:",o:["Fusión","Condensación","Evaporación","Solidificación"],a:2,e:"Evaporación: de líquido a gas, al calentar."},
+   {q:"Las gotitas que se forman por fuera de un vaso con bebida helada se deben a la:",o:["Condensación","Evaporación","Fusión","Sublimación"],a:0,e:"Condensación: el vapor de agua del aire se enfría al tocar el vaso y se vuelve líquido."},
+   {q:"Cuando un helado se derrite, ocurre una:",o:["Solidificación","Fusión","Condensación","Evaporación"],a:1,e:"Fusión: de sólido a líquido. Lo contrario es la solidificación (hacer hielo)."},
+   {q:"¿Cuál de estas fuentes de energía es renovable?",o:["Petróleo","Carbón","Energía solar","Gas natural"],a:2,e:"Las renovables no se agotan: solar, eólica, hidráulica. Petróleo, carbón y gas sí se agotan."},
+   {q:"¿Qué transformación de energía ocurre en una ampolleta encendida?",o:["Eléctrica en lumínica y calórica","Lumínica en eléctrica","Química en eléctrica","Calórica en química"],a:0,e:"Recibe energía eléctrica y la transforma en luz y calor."},
+   {q:"¿Qué transformación de energía ocurre en un panel solar?",o:["Eléctrica en lumínica","Lumínica (del sol) en eléctrica","Química en calórica","Sonora en eléctrica"],a:1,e:"Capta la luz del sol y la transforma en electricidad."},
+   {q:"Una pila o batería almacena energía de tipo:",o:["Química","Solar","Eólica","Sonora"],a:0,e:"La pila guarda energía química y la entrega como eléctrica."},
+   {open:true,q:"Nombra dos fuentes de energía renovable y explica por qué conviene usarlas en el norte de Chile.",m:"Ejemplo: “La energía solar y la eólica. En el norte conviene la solar porque hay sol casi todo el año y muy pocas nubes. Además, las renovables no se agotan y contaminan menos que el petróleo o el carbón.”"}
+  ]},
+ soc:{name:"Estudios Sociales", c:"var(--soc)",
+  intro:"Democracia, geografía de Chile e historia desde la Conquista hasta 1990. Para la historia, aprende el orden de los hechos con la línea de tiempo.",
+  guide:[
+   {t:"Democracia y derechos humanos", b:"Democracia: el pueblo elige a sus autoridades con voto libre, hay separación de poderes y se respetan los derechos.<br>Declaración Universal de los Derechos Humanos: ONU, 1948.<br>Lo que protege derechos en Chile: Constitución, tribunales, recurso de protección y de amparo, Instituto Nacional de Derechos Humanos (INDH)."},
+   {t:"Poderes del Estado", b:"<b>Ejecutivo</b>: Presidente, gobierna.<br><b>Legislativo</b>: Congreso (Senado y Cámara de Diputados), hace las leyes.<br><b>Judicial</b>: tribunales, aplican la justicia."},
+   {t:"Ubicación de Chile", b:"América del Sur, hemisferios sur y occidental. Limita con Perú (norte), Bolivia (noreste), Argentina (este) y el océano Pacífico (oeste).<br>Tricontinental: América, Oceanía (Isla de Pascua) y Antártica.<br>Posición absoluta: latitud y longitud. Posición relativa: respecto a otros lugares (al sur de Perú, por ejemplo)."},
+   {t:"Organización del territorio", b:"16 regiones, que se dividen en provincias y estas en comunas. Región más al norte: Arica y Parinacota. Capital: Santiago."},
+   {t:"Relieve", b:"De oeste a este: planicies litorales, cordillera de la Costa, depresión intermedia y cordillera de los Andes. En el Norte Grande aparece el altiplano; en la Zona Austral, fiordos, canales y campos de hielo."},
+   {t:"Zonas naturales", b:"<b>Norte Grande</b>: desierto, minería (cobre, litio), pesca.<br><b>Norte Chico</b>: semiárido, valles transversales, minería y fruta.<br><b>Zona Central</b>: mediterráneo, agricultura y vino.<br><b>Zona Sur</b>: lluvioso, bosques, ganadería, salmones.<br><b>Zona Austral</b>: frío, ganadería ovina, gas y turismo."},
+   {t:"Conquista y Colonia", b:"Pedro de Valdivia funda Santiago (1541). Guerra de Arauco con el pueblo mapuche. Herencia: mestizaje, idioma español, religión católica, ciudades."},
+   {t:"Independencia", b:"Causas externas: invasión de Napoleón a España y prisión del rey; independencia de Estados Unidos; ideas de libertad de la Ilustración.<br>Causa interna: descontento de los criollos.<br>Consecuencia: Chile se vuelve república, fin del dominio español."},
+   {t:"Línea de tiempo", b:"<ol class='tl'><li><b>1810</b> Primera Junta de Gobierno</li><li><b>1818</b> Independencia y batalla de Maipú</li><li><b>1879-1884</b> Guerra del Pacífico: riqueza del salitre</li><li><b>1929</b> Crisis económica mundial; Tratado de Lima (Arica queda en Chile)</li><li><b>1939</b> CORFO, Estado Benefactor</li><li><b>1949</b> Voto femenino en todas las elecciones</li><li><b>1960-1973</b> Reforma Agraria y nacionalización del cobre</li><li><b>1973</b> Golpe de Estado, quiebre de la democracia</li><li><b>1973-1990</b> Régimen militar</li><li><b>1988</b> Plebiscito, gana el “No”</li><li><b>1990</b> Vuelta a la democracia: asume Patricio Aylwin</li></ol>"},
+   {t:"Crisis de 1929 y Estado Benefactor", b:"La crisis hizo caer la venta de salitre y cobre: cesantía y pobreza. Respuesta: el Estado pasó a intervenir en la economía, creó industrias (CORFO) y amplió salud, educación y vivienda."},
+   {t:"Quiebre, régimen militar y transición", b:"11 de septiembre de 1973: las Fuerzas Armadas derrocan al presidente Salvador Allende. Régimen de Augusto Pinochet: Congreso cerrado, partidos prohibidos, violaciones a los derechos humanos, economía de libre mercado, Constitución de 1980. Plebiscito de 1988: gana el “No”; en 1990 vuelve la democracia."}
+  ],
+  q:[
+   {q:"¿Qué es la democracia?",o:["Un gobierno donde manda una persona sin elecciones","Una forma de gobierno donde el poder reside en el pueblo, que elige a sus autoridades","Un gobierno de los militares","Un sistema donde solo votan los ricos"],a:1,e:"En democracia el pueblo elige a sus autoridades con votaciones libres y se respetan los derechos de las personas."},
+   {q:"¿Qué organismo proclamó en 1948 la Declaración Universal de los Derechos Humanos?",o:["La OEA","La ONU (Naciones Unidas)","El Congreso de Chile","La Iglesia Católica"],a:1,e:"La ONU, el 10 de diciembre de 1948. Reconoce derechos como la vida, la libertad, la educación y la igualdad ante la ley."},
+   {q:"¿Cuál es la ley fundamental de Chile, que establece derechos y deberes y organiza el Estado?",o:["El Código del Trabajo","La Constitución Política","El Código Civil","Un decreto municipal"],a:1,e:"La Constitución es la ley más importante; las demás leyes no pueden contradecirla."},
+   {q:"Si una persona siente que están vulnerando sus derechos, puede presentar ante los tribunales un:",o:["Recurso de protección","Certificado de nacimiento","Plebiscito","Censo"],a:0,e:"El recurso de protección y el de amparo sirven para defender derechos ante los tribunales."},
+   {q:"¿Qué poder del Estado se encarga de hacer las leyes?",o:["Ejecutivo","Legislativo","Judicial","Municipal"],a:1,e:"Legislativo: el Congreso. Ejecutivo: el Presidente. Judicial: los tribunales."},
+   {q:"¿Cuántas regiones tiene Chile?",o:["13","15","16","12"],a:2,e:"Chile tiene 16 regiones, divididas en provincias y comunas."},
+   {q:"¿Cuál es la región que está más al norte de Chile?",o:["Tarapacá","Antofagasta","Arica y Parinacota","Atacama"],a:2,e:"Arica y Parinacota, en el extremo norte, limita con Perú y Bolivia."},
+   {q:"¿Con qué países limita Chile?",o:["Perú, Bolivia y Argentina","Perú, Brasil y Argentina","Bolivia, Paraguay y Argentina","Argentina y Uruguay"],a:0,e:"Norte: Perú. Noreste: Bolivia. Este: Argentina. Oeste: océano Pacífico."},
+   {q:"Chile se ubica en los hemisferios:",o:["Norte y oriental","Sur y occidental","Norte y occidental","Sur y oriental"],a:1,e:"Al sur de la línea del Ecuador y al oeste del meridiano de Greenwich. La ubicación exacta (absoluta) se da con latitud y longitud."},
+   {q:"Chile es tricontinental porque tiene territorio en:",o:["América, Europa y Asia","América, Oceanía y la Antártica","América, África y Oceanía","Solo en América"],a:1,e:"América del Sur, Oceanía (Isla de Pascua) y la Antártica (Territorio Chileno Antártico)."},
+   {q:"¿Cuáles son las cuatro formas de relieve principales de Chile, de oeste a este?",o:["Planicies litorales, cordillera de la Costa, depresión intermedia, cordillera de los Andes","Cordillera de los Andes, valles, playas, desierto","Altiplano, desierto, bosques, glaciares","Islas, playas, cerros, volcanes"],a:0,e:"Del mar a la montaña: planicies litorales, cordillera de la Costa, depresión intermedia y cordillera de los Andes."},
+   {q:"¿Qué clima y actividad económica caracterizan al Norte Grande?",o:["Clima lluvioso y ganadería","Clima desértico y minería","Clima mediterráneo y vino","Clima frío y bosques"],a:1,e:"Ahí está el desierto de Atacama, el más árido del mundo. Su actividad principal es la minería (cobre, litio)."},
+   {q:"La zona central de Chile tiene clima:",o:["Desértico","Polar","Mediterráneo, con estaciones marcadas y lluvias en invierno","Tropical"],a:2,e:"El clima mediterráneo favorece la agricultura: frutas, hortalizas y viñas."},
+   {q:"¿Quién fundó Santiago en 1541?",o:["Diego de Almagro","Pedro de Valdivia","Bernardo O’Higgins","Cristóbal Colón"],a:1,e:"Pedro de Valdivia fundó Santiago el 12 de febrero de 1541, durante la Conquista."},
+   {q:"¿Qué consecuencia de la Conquista y la Colonia se mantiene hasta hoy?",o:["El mestizaje, el idioma español y la religión católica","El uso del dólar","La independencia de Perú","La minería del litio"],a:0,e:"La mezcla entre españoles e indígenas, el idioma y la religión son herencias de ese período."},
+   {q:"¿Qué hecho ocurrió el 18 de septiembre de 1810?",o:["La batalla de Maipú","Se formó la Primera Junta Nacional de Gobierno","Se aprobó la Constitución de 1980","Llegó Pedro de Valdivia"],a:1,e:"Es el inicio del proceso de Independencia; por eso se celebra el 18 de septiembre."},
+   {q:"¿Cuál fue una causa externa de la Independencia de Chile?",o:["La Guerra del Pacífico","La invasión de Napoleón a España y la prisión del rey Fernando VII","La crisis de 1929","El descubrimiento del cobre"],a:1,e:"Sin rey en España, los criollos formaron juntas de gobierno. Causa interna: el descontento de los criollos."},
+   {q:"¿Qué batalla de 1818 consolidó la Independencia de Chile?",o:["Rancagua","Maipú","Chacabuco","Iquique"],a:1,e:"Maipú (5 de abril de 1818). Chacabuco fue en 1817 y Rancagua en 1814."},
+   {q:"¿Qué riqueza obtuvo Chile tras la Guerra del Pacífico (1879-1884)?",o:["El cobre de El Teniente","Los territorios salitreros de Tarapacá y Antofagasta","Los bosques del sur","Las islas de Chiloé"],a:1,e:"Chile venció a Perú y Bolivia. Los impuestos al salitre enriquecieron al Estado por décadas."},
+   {q:"¿En qué año el Tratado de Lima dejó definitivamente a Arica como parte de Chile?",o:["1818","1883","1929","1973"],a:2,e:"En 1929 se acordó que Arica quedara para Chile y Tacna volviera a Perú."},
+   {q:"¿Qué efecto tuvo en Chile la crisis económica de 1929?",o:["Aumentó mucho la venta de salitre","Cayeron las exportaciones, hubo cesantía masiva y pobreza","Chile se independizó","Se fundó Santiago"],a:1,e:"Chile fue uno de los países más golpeados: bajó la venta de salitre y cobre y cerraron oficinas salitreras."},
+   {q:"Después de la crisis de 1929, el Estado Benefactor se caracterizó por:",o:["No intervenir en la economía","Participar en la economía y ampliar salud, educación y vivienda","Eliminar las escuelas públicas","Prohibir las industrias"],a:1,e:"El Estado asumió un rol activo: creó la CORFO (1939) para impulsar industrias y amplió los servicios sociales."},
+   {q:"¿En qué año se aprobó el voto de la mujer en elecciones presidenciales y parlamentarias?",o:["1810","1949","1973","1990"],a:1,e:"Desde 1934 votaban en elecciones municipales; en 1949 se amplió a todas. En 1970 se dio voto a los analfabetos y a los mayores de 18 años."},
+   {q:"¿Cuáles fueron dos reformas estructurales de los años 60 y comienzos de los 70?",o:["La Reforma Agraria y la nacionalización del cobre","La fundación de Santiago y la Independencia","La Guerra del Pacífico y el salitre","El plebiscito y la transición"],a:0,e:"La Reforma Agraria redistribuyó tierras. El cobre pasó por la “chilenización” (Frei Montalva) y luego la nacionalización (Allende, 1971)."},
+   {q:"¿Qué ocurrió el 11 de septiembre de 1973?",o:["Un plebiscito","Un golpe de Estado que derrocó al presidente Salvador Allende","La Independencia de Chile","El fin de la Guerra del Pacífico"],a:1,e:"Las Fuerzas Armadas tomaron el poder: fue el quiebre de la democracia y el inicio del régimen militar encabezado por Augusto Pinochet."},
+   {q:"¿Cuál fue una característica del régimen militar (1973-1990)?",o:["El Congreso funcionó normalmente","Se cerró el Congreso, se prohibieron los partidos y hubo violaciones a los derechos humanos","Hubo elecciones presidenciales cada 4 años","Se nacionalizó el cobre"],a:1,e:"También se aplicó una economía de libre mercado y se aprobó la Constitución de 1980."},
+   {q:"¿Qué hecho permitió iniciar la transición a la democracia?",o:["El plebiscito de 1988, donde ganó el “No”","La crisis de 1929","La batalla de Maipú","La Reforma Agraria"],a:0,e:"Al ganar el “No” se convocó a elecciones. En 1990 asumió Patricio Aylwin."},
+   {q:"¿Cuál es el orden correcto, del hecho más antiguo al más reciente?",o:["Independencia, Guerra del Pacífico, crisis de 1929, golpe de Estado","Guerra del Pacífico, Independencia, golpe de Estado, crisis de 1929","Crisis de 1929, Independencia, Guerra del Pacífico, golpe de Estado","Independencia, crisis de 1929, Guerra del Pacífico, golpe de Estado"],a:0,e:"1810-1818 Independencia, 1879-1884 Guerra del Pacífico, 1929 crisis, 1973 golpe. Ordena siempre por año."},
+   {open:true,q:"¿Por qué es importante la democracia para proteger los derechos humanos? Explica con tus palabras.",m:"Ejemplo: “Porque en democracia el pueblo elige a sus autoridades y estas deben respetar la Constitución y las leyes. Hay tribunales y libertad de expresión, entonces si alguien vulnera un derecho, las personas pueden reclamar y defenderse.”"}
+  ]}
+};
+var ORDER = ["len","mat","cie","soc"];
+
+var app = document.getElementById("app");
+var quiz = null, timerId = null;
+
+function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+function save(d){ try{ localStorage.setItem(KEY, JSON.stringify(d)); }catch(e){} }
+function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function fmt(x){ return x.toFixed(1).replace(".", ","); }
+function nota(p,n){ if(!n) return 1; var e=0.6*n, x = p>=e ? 4+3*(p-e)/(n-e) : 1+3*p/e; return Math.round(x*10)/10; }
+function prep(q,sk){
+  var it={src:q, sk:sk, q:q.q, c:q.c, open:!!q.open, m:q.m, e:q.e};
+  if(!q.open){ var idx=shuffle(q.o.map(function(_,i){return i;})); it.opts=idx.map(function(i){return q.o[i];}); it.ans=idx.indexOf(q.a); }
+  return it;
+}
+function show(html, keep){ app.innerHTML = html; if(!keep) window.scrollTo(0,0); }
+function stopTimer(){ if(timerId){ clearInterval(timerId); timerId=null; } }
+
+function home(){
+  stopTimer(); quiz=null;
+  var d=load(), best=d.best||{};
+  var t=new Date(), today=new Date(t.getFullYear(),t.getMonth(),t.getDate());
+  var days=Math.round((EXAM-today)/864e5), cd="";
+  if(days>1) cd="Faltan "+days+" días";
+  else if(days===1) cd="Mañana parte el período de examen";
+  else if(days===0) cd="Hoy parte el período de examen";
+  else if(days>=-4) cd="Estás en semana de examen";
+  var tabs=ORDER.map(function(k){
+    var s=SUBJ[k], b=best[k];
+    return "<button class='tab' style='--c:"+s.c+"' onclick=\"subject('"+k+"')\"><span class='tx'><b>"+s.name+"</b><small>"+s.q.length+" preguntas y guía rápida</small></span>"+
+      (b!=null ? "<span class='best'>"+fmt(b)+"<small>mejor nota</small></span>" : "")+"</button>";
+  }).join("");
+  show(
+   "<h1>Repaso para el examen</h1>"+
+   "<p class='lead'>Prueba de Fines Laborales, 3er nivel básico (7° y 8°). Practica por asignatura o haz un ensayo completo como el real.</p>"+
+   "<section class='exam'>"+(cd?"<p class='count hand'>"+cd+"</p>":"")+
+   "<p>Período de examen: <b>7 al 11 de octubre</b><br>Liceo Bicentenario Domingo Santa María, Santa María 2189<br>20 preguntas en 90 minutos. Apruebas con nota 4,0.</p></section>"+
+   "<h2>Elige una asignatura</h2><div class='tabs'>"+tabs+"</div>"+
+   "<button class='sim' onclick='startSim()'><b>Hacer ensayo completo</b><span>20 preguntas de las 4 asignaturas, con reloj de 90 minutos"+(best.sim!=null?". Tu mejor nota: "+fmt(best.sim):"")+"</span></button>"+
+   "<p class='foot'>Más ensayos oficiales en <a href='https://www.epja.cl' target='_blank' rel='noopener'>epja.cl</a>. Lleva cédula de identidad y lápiz el día de la prueba; el celular debe ir apagado.</p>"+
+   (d.best ? "<button class='link' onclick='resetAll()'>Borrar mi avance</button>" : "")
+  );
+}
+function resetAll(){ save({}); home(); }
+
+function subject(k){
+  var s=SUBJ[k];
+  show(
+   "<button class='back' onclick='home()'>‹ Inicio</button>"+
+   "<h1 style='--c:"+s.c+"'><span class='subj-h'>"+s.name+"</span></h1>"+
+   "<p class='lead'>"+s.intro+"</p>"+
+   "<div class='choices' style='--c:"+s.c+"'>"+
+   "<button class='big' onclick=\"guide('"+k+"')\"><b>Leer la guía rápida</b><span>Lo esencial en "+s.guide.length+" tarjetas</span></button>"+
+   "<button class='big primary' onclick=\"startQuiz('"+k+"')\"><b>Practicar preguntas</b><span>"+s.q.length+" preguntas, con la explicación de cada respuesta</span></button></div>"
+  );
+}
+
+function guide(k){
+  var s=SUBJ[k];
+  show(
+   "<button class='back' onclick=\"subject('"+k+"')\">‹ "+s.name+"</button>"+
+   "<h1 style='--c:"+s.c+"'><span class='subj-h'>Guía rápida</span></h1>"+
+   "<div style='--c:"+s.c+"'>"+s.guide.map(function(g){ return "<div class='gcard'><h3>"+g.t+"</h3><p>"+g.b+"</p></div>"; }).join("")+"</div>"+
+   "<button class='next' onclick=\"startQuiz('"+k+"')\">Practicar preguntas</button>"
+  );
+}
+
+function begin(list, mode, key, mins){
+  stopTimer();
+  quiz={list:list, mode:mode, key:key, i:0, picked:null, revealed:false, draft:"", res:[]};
+  if(mins){ quiz.endAt=Date.now()+mins*60000; timerId=setInterval(tick,1000); }
+  qView();
+}
+function startQuiz(k){ begin(shuffle(SUBJ[k].q).map(function(q){return prep(q,k);}), "tema", k, 0); }
+function startSim(){
+  var list=[];
+  ORDER.forEach(function(k){ shuffle(SUBJ[k].q).slice(0,5).forEach(function(q){ list.push(prep(q,k)); }); });
+  begin(list, "sim", "sim", 90);
+}
+function retryWrong(){
+  var w=quiz.res.filter(function(r){return !r.ok;});
+  begin(shuffle(w).map(function(r){ return prep(r.it.src, r.it.sk); }), "retry", quiz.key, 0);
+}
+function tick(){
+  if(!quiz||!quiz.endAt) return;
+  var ms=quiz.endAt-Date.now();
+  if(ms<=0){ finish(); return; }
+  var el=document.getElementById("timer"); if(!el) return;
+  var m=Math.floor(ms/60000), s=Math.floor(ms%60000/1000);
+  el.textContent=m+":"+(s<10?"0":"")+s;
+  el.className="timer"+(ms<600000?" low":"");
+}
+
+function qView(keep){
+  var it=quiz.list[quiz.i], s=SUBJ[it.sk], n=quiz.list.length;
+  var pct=Math.round((quiz.i+(quiz.picked!=null?1:0))/n*100);
+  var h="<div class='bar' style='--c:"+(quiz.mode==="sim"?"var(--blue)":s.c)+"'><div class='bar-row'><button class='back' onclick='home()'>‹ Salir</button>"+
+    "<span>Pregunta "+(quiz.i+1)+" de "+n+"</span>"+(quiz.endAt?"<span class='timer' id='timer'>…</span>":"<span></span>")+"</div>"+
+    "<div class='prog'><i style='width:"+pct+"%'></i></div></div>";
+  if(quiz.mode!=="tema") h+="<span class='chip' style='--c:"+s.c+"'>"+s.name+"</span>";
+  if(it.c) h+="<div class='ctx'><p class='ctx-t'>"+TX[it.c].t+"</p>"+TX[it.c].h+"</div>";
+  h+="<h2 class='q'>"+it.q+"</h2>";
+  if(it.open){
+    h+="<p class='hint'>Pregunta abierta: escribe tu respuesta y luego compárala con la respuesta modelo.</p>"+
+       "<textarea id='ta' rows='4' placeholder='Escribe aquí tu respuesta' aria-label='Tu respuesta'>"+esc(quiz.draft)+"</textarea>";
+    if(!quiz.revealed) h+="<button class='next' onclick='reveal()'>Ver respuesta modelo</button>";
+    else{
+      h+="<div class='fb' id='fb'><p class='hand fb-t'>Respuesta modelo</p><p>"+it.m+"</p></div>";
+      if(quiz.picked==null) h+="<p class='ask'>¿Tu respuesta se parecía a la modelo?</p><div class='yn'><button onclick='selfEval(true)'>Sí, se parecía</button><button onclick='selfEval(false)'>No mucho</button></div>";
+      else h+=nextBtn();
+    }
+  } else {
+    h+="<div class='opts'>"+it.opts.map(function(o,i){
+      var cls="opt";
+      if(quiz.picked!=null){ cls += i===it.ans ? " ok" : (i===quiz.picked ? " bad" : " dim"); }
+      return "<button class='"+cls+"' onclick='pick("+i+")'"+(quiz.picked!=null?" aria-disabled='true'":"")+"><span class='L'>"+"ABCD"[i]+"</span><span>"+o+"</span></button>";
+    }).join("")+"</div>";
+    if(quiz.picked!=null){
+      var ok=quiz.picked===it.ans;
+      h+="<div class='fb "+(ok?"is-ok":"is-bad")+"' id='fb' role='status'><p class='hand fb-t'>"+(ok?"¡Correcto!":"Era la "+"ABCD"[it.ans])+"</p><p>"+it.e+"</p></div>"+nextBtn();
+    }
+  }
+  show(h, keep);
+  tick();
+  if(keep){ var fb=document.getElementById("fb"); if(fb) fb.scrollIntoView({behavior:"smooth", block:"nearest"}); }
+}
+function esc(t){ return (t||"").replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+function nextBtn(){ return "<button class='next' onclick='next()'>"+(quiz.i+1<quiz.list.length?"Siguiente pregunta":"Ver mi nota")+"</button>"; }
+function pick(i){
+  if(quiz.picked!=null) return;
+  var it=quiz.list[quiz.i];
+  quiz.picked=i; quiz.res.push({it:it, ok:i===it.ans});
+  qView(true);
+}
+function reveal(){ var ta=document.getElementById("ta"); quiz.draft=ta?ta.value:""; quiz.revealed=true; qView(true); }
+function selfEval(ok){
+  var ta=document.getElementById("ta"); if(ta) quiz.draft=ta.value;
+  quiz.picked=ok?1:0; quiz.res.push({it:quiz.list[quiz.i], ok:ok}); qView(true);
+}
+function next(){
+  quiz.i++; quiz.picked=null; quiz.revealed=false; quiz.draft="";
+  if(quiz.i>=quiz.list.length) finish(); else qView();
+}
+
+function finish(){
+  stopTimer();
+  var n=quiz.list.length, ok=quiz.res.filter(function(r){return r.ok;}).length, g=nota(ok,n);
+  if(quiz.mode!=="retry"){
+    var d=load(); d.best=d.best||{};
+    if(d.best[quiz.key]==null || g>d.best[quiz.key]) d.best[quiz.key]=g;
+    save(d);
+  }
+  var pass=g>=4;
+  var h="<div class='result'><p class='lead' style='margin:0'>"+(quiz.mode==="sim"?"Ensayo completo":quiz.mode==="retry"?"Repaso de errores":SUBJ[quiz.key].name)+"</p>"+
+    "<div class='grade' aria-label='Nota "+fmt(g)+"'>"+fmt(g)+"</div>"+
+    "<p class='verdict'>"+(pass?"Aprobado":"Todavía no, pero vas en camino")+"</p>"+
+    "<p class='lead'>"+ok+" de "+n+" correctas. "+(pass?(g>=6?"Excelente nivel, sigue así.":"Bien. Repasa los errores para asegurar la nota."):"Revisa la guía rápida y repite las que fallaste.")+"</p></div>";
+  if(quiz.mode==="sim"){
+    h+="<div class='breakdown'>"+ORDER.map(function(k){
+      var rs=quiz.list.filter(function(it){return it.sk===k;}).length;
+      var rok=quiz.res.filter(function(r){return r.ok && r.it.sk===k;}).length;
+      return "<div class='brow' style='--c:"+SUBJ[k].c+"'><span>"+SUBJ[k].name+"</span><b>"+rok+" / "+rs+"</b></div>";
+    }).join("")+"</div>";
+    if(quiz.res.length<n) h+="<p class='hint' style='text-align:center'>Se acabó el tiempo: las preguntas sin responder cuentan como incorrectas.</p>";
+  }
+  var wrong=quiz.res.filter(function(r){return !r.ok;});
+  if(wrong.length){
+    h+="<h2>Las que fallaste</h2><div class='wrong'>"+wrong.map(function(r){
+      var it=r.it;
+      return "<div class='gcard'><p>"+it.q+"</p><p>"+(it.open?"Revisa la respuesta modelo al repetirla.":"Respuesta: "+it.opts[it.ans])+"</p></div>";
+    }).join("")+"</div>";
+  }
+  h+="<div class='actions'>"+(wrong.length?"<button class='next' onclick='retryWrong()'>Repetir solo las que fallé</button>":"")+
+    (quiz.mode==="sim"?"<button class='ghost' onclick='startSim()'>Hacer otro ensayo</button>":quiz.mode==="tema"?"<button class='ghost' onclick=\"startQuiz('"+quiz.key+"')\">Practicar de nuevo</button>":"")+
+    "<button class='ghost' onclick='home()'>Volver al inicio</button></div>";
+  show(h);
+}
+
+home();
+</script>
+</body>
+</html>
